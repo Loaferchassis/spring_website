@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Tasklist:</h1>
+<form th:action="@{/logout}" method="get">
+    <button class="btn btn-md btn-danger btn-block" name="registration"
+            type="Submit">Logout
+    </button>
+</form>
+<form action="add" th:action="@{/}" th:object="${taskObj}" name="submitForm" method="post">
+    <input type="text" name="task" th:field="*{task}"/>
+    <input type="submit" class="button" value="Add" name="addButton">
+    <table>
+        <tr th:each="t : ${taskList}">
+            <td th:text="${t.task}">1</td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
